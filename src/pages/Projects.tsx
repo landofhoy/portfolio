@@ -1,122 +1,131 @@
 import React from 'react';
-import { Container, Typography, Box, Button, Divider } from '@mui/material';
+import { Container, Typography, Box, Divider } from '@mui/material';
 import { motion } from 'framer-motion';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LaunchIcon from '@mui/icons-material/Launch';
 
 const projects = [
   {
     title: 'Quotation Flexibility Initiative',
-    role: 'Associate Product Manager',
+    role: 'Digital Platform Specialist (North America)',
     duration: 'Jan 2022 – Present',
     company: 'Festo',
-    problem: 'Customers were losing access to discounted pricing due to the expiration of previously issued quotations, leading to abandoned carts and lost revenue.',
+    problem: 'Customers frequently lost access to discounted pricing when previously issued quotations expired before purchase, resulting in order abandonment and an overreliance on manual support channels to reinstate pricing.',
     approach: [
-      'Analyzed customer ordering patterns',
-      'Collaborated with sales and IT teams',
-      'Identified ways to preserve pricing integrity without manual intervention',
+      'Identified the issue through a combination of customer support data and direct feedback from sales teams',
+      'Drafted an Epic including the business case, success metrics, and detailed requirements',
+      'Aligned internal stakeholders (sales, customer service, IT) and collaborated with the APO responsible for the checkout experience to prioritize the initiative',
     ],
-    solution: 'Implemented a system allowing customers to reuse previously issued quotations during checkout.',
+    solution: 'Enabled the reuse of quotations at checkout, allowing customers to retain their negotiated pricing even after formal expiration. Supported the creation of user stories, contributed to QA testing, and led internal rollout communications and external feature promotion.',
     outcomes: [
       'Increased online sales by 7%',
       'Reduced quote expirations by 30%',
+      'Decreased manual quote reinstatement requests, easing support burden',
     ],
   },
   {
     title: 'Quantity Contracts Digitization',
-    role: 'Associate Product Manager',
+    role: 'Digital Platform Specialist (North America)',
     duration: 'Jan 2022 – Present',
     company: 'Festo',
-    problem: 'Sales agents were spending excessive time manually referencing past orders for recurring purchases.',
+    problem: 'Recurring B2B purchases required manual referencing of past orders or contract terms, consuming significant sales agent time and creating friction for repeat buyers.',
     approach: [
-      'Gathered feedback from sales teams',
-      'Mapped manual workflows',
-      'Identified automation opportunities',
+      'Analyzed ticket data and gathered input from sales teams highlighting inefficiencies in handling quantity contract orders',
+      'Developed an Epic outlining the need for a self-service digital referencing solution, complete with proposed KPIs and customer value justification',
+      'Partnered with the APO responsible for account-based pricing to move the Epic into development',
     ],
-    solution: 'Designed and launched a digital process for referencing quantity contracts directly within the eCommerce platform.',
+    solution: 'Digitized the quantity contract referencing process within the eCommerce platform, enabling customers to seamlessly place repeat orders without agent assistance. Participated in story writing, QA testing, and internal/external communication strategies for rollout.',
     outcomes: [
       'Saved agents up to 15 hours per week',
       'Increased online sales by 10%',
+      'Improved overall customer satisfaction with order transparency',
     ],
   },
   {
-    title: 'Enhanced PO Upload with AI/OCR',
-    role: 'Associate Product Manager',
+    title: 'Enhanced PO Upload (AI/OCR Integration)',
+    role: 'Digital Platform Specialist (North America)',
     duration: 'Jan 2022 – Present',
     company: 'Festo',
-    problem: 'Manual processing of purchase orders was slow and error-prone, affecting order turnaround time and customer satisfaction.',
+    problem: 'Customers submitting purchase orders via PDF or scanned documents often caused delays due to manual processing, misinterpretation, or errors, resulting in slower order fulfillment and higher support load.',
     approach: [
-      'Explored intelligent document recognition technologies',
-      'Coordinated with engineering to test OCR models',
+      'Identified order processing inefficiencies through internal data and support feedback',
+      'Drafted a business case emphasizing order volume impact and customer friction',
+      'Collaborated with the APO for ordering workflow to prioritize the project and integrate AI-based solutions',
     ],
-    solution: 'Implemented an AI/OCR-based tool for purchase order uploads, enabling faster, more accurate processing.',
+    solution: 'Introduced an AI/OCR-powered upload feature that automatically extracts and validates PO data for faster order entry. Defined success metrics, supported QA, and coordinated cross-functional rollout with marketing and support.',
     outcomes: [
       'Projected to boost online sales by 15%',
+      'Reduced order entry errors and processing delays',
+      'Improved overall PO-to-fulfillment cycle time',
     ],
   },
   {
     title: 'Enhanced Configurators Expansion',
-    role: 'Associate Product Manager',
+    role: 'Digital Platform Specialist (North America)',
     duration: 'Jan 2022 – Present',
     company: 'Festo',
-    problem: 'Limited configurator hosting capabilities were restricting partner sales and customer access to customized components.',
+    problem: 'Limited access to product configurators was restricting partner sales and customer self-service for configurable components, leading to missed opportunities and increased support queries.',
     approach: [
-      'Partnered with the sales enablement team',
-      'Analyzed hosting limitations',
-      'Developed expansion strategy for partner channels',
+      'Analyzed configurator usage data and gathered partner feedback highlighting gaps',
+      'Created an Epic advocating for extended configurator hosting via partner channels',
+      'Aligned key internal stakeholders including IT, product marketing, and sales enablement',
     ],
-    solution: 'Scaled the configurator platform to include partner channels.',
+    solution: 'Expanded configurator hosting to external sales partners and optimized the platform\'s usability. Contributed to user story development, supported testing, and drove partner-facing rollout communications.',
     outcomes: [
-      'Increased configurable material sales by 10%',
+      'Increased configurable product sales by 10%',
+      'Reduced reliance on manual configuration support',
+      'Improved partner enablement and digital sales tools',
     ],
   },
   {
     title: 'Distribution Portal Localization',
-    role: 'Associate Product Manager',
+    role: 'Digital Platform Specialist (North America)',
     duration: 'Jan 2022 – Present',
     company: 'Festo',
-    problem: 'Key B2B distributors lacked a centralized access point for customer-specific data, leading to inefficiencies.',
+    problem: 'Key distributors lacked access to centralized, localized data resources—resulting in inefficient order tracking, pricing confusion, and heavy dependence on support teams.',
     approach: [
-      'Worked closely with regional stakeholders',
-      'Identified localization requirements',
-      'Mapped usability improvements',
+      'Surfaced the issue through distributor feedback and an internal audit of portal usage',
+      'Drafted an Epic to localize and optimize the portal experience for North America\'s largest B2B accounts',
+      'Coordinated with sales, support, and IT to ensure accuracy and alignment',
     ],
-    solution: 'Localized and centralized the Distribution Portal tailored to Festo\'s largest B2B segment.',
+    solution: 'Localized the Distribution Portal with custom user flows, region-specific documentation, and pricing access. Contributed to the build and rollout process across multiple teams.',
     outcomes: [
-      'Reduced manual workload for distributors',
-      'Improved distributor satisfaction and efficiency',
+      'Reduced manual support workload',
+      'Improved distributor satisfaction and portal engagement',
+      'Accelerated time-to-information for strategic partners',
     ],
   },
   {
     title: 'Strategic Couponing Initiative',
-    role: 'Associate Product Manager',
+    role: 'Digital Platform Specialist (North America)',
     duration: 'Jan 2022 – Present',
     company: 'Festo',
-    problem: 'Retention among strategic customer segments was stagnating, and some high-value product groups were underperforming.',
+    problem: 'Customer retention rates plateaued, and specific product groups were underperforming in targeted segments despite competitive pricing.',
     approach: [
-      'Segmented customer groups',
-      'Aligned coupon incentives with underperforming SKUs',
+      'Analyzed sales performance data and identified segments where strategic incentives could influence purchase behavior',
+      'Created an Epic outlining a digital couponing system with personalized targeting and measurable success metrics',
     ],
-    solution: 'Launched a couponing initiative targeting specific customer/product combinations.',
+    solution: 'Launched a promotional couponing feature to incentivize purchases in key product categories. Coordinated A/B testing for offer types and led rollout efforts across CRM, marketing, and sales platforms.',
     outcomes: [
-      'Projected 15% increase in sales within targeted product groups',
+      'Projected to increase sales by 15% in targeted product groups',
+      'Improved reactivation of dormant accounts',
+      'Strengthened digital-first upsell opportunities',
     ],
   },
   {
     title: 'Material Activation App',
-    role: 'Associate Product Manager',
+    role: 'Digital Platform Specialist (North America)',
     duration: 'Jan 2022 – Present',
     company: 'Festo',
-    problem: 'Material activation was a bottleneck in product go-to-market, with a backlog and delays up to 3 weeks.',
+    problem: 'The manual process of activating new materials in the internal system was backlogged and slow, taking up to three weeks and delaying product availability on the online shop.',
     approach: [
-      'Mapped the manual process',
-      'Designed an internal tool to streamline workflows',
-      'Reduced lead time through process optimization',
+      'Proactively identified the issue through internal workflow analysis and backlog metrics',
+      'Independently ideated a digital tool to streamline the activation process',
+      'Authored a complete Product Requirements Document (PRD) and collaborated directly with a local software engineer to build the solution',
     ],
-    solution: 'Developed and deployed a Material Activation App.',
+    solution: 'Developed and deployed a custom Material Activation App to automate and standardize the material setup process. Led testing, implementation, and change management internally.',
     outcomes: [
-      'Reduced backlog by 70%',
-      'Cut activation time from 3 weeks to 1 week',
+      'Reduced activation backlog by 70%',
+      'Cut material activation time from 3 weeks to 1 week',
+      'Enabled faster product launches and reduced internal coordination friction',
     ],
   },
 ];
@@ -162,7 +171,10 @@ const Projects = () => {
             
             <Box sx={{ mb: 4 }}>
               <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                {project.company} – {project.role} | {project.duration}
+                {project.company} – {project.role}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {project.duration}
               </Typography>
             </Box>
 
