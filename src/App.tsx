@@ -120,7 +120,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router>
+      <Router basename="/portfolio">
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           <Navbar />
           <Box component="main" sx={{ flexGrow: 1, py: 4 }}>
