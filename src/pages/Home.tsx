@@ -1,79 +1,128 @@
 import React from 'react';
 import { Container, Typography, Box, Button } from '@mui/material';
 import { motion } from 'framer-motion';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="lg">
+      <Box
+        sx={{
+          minHeight: '80vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          gap: 4,
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <Typography
+            variant="h1"
+            sx={{
+              fontSize: { xs: '2.5rem', md: '3.5rem' },
+              mb: 2,
+              letterSpacing: '-0.02em',
+            }}
+          >
+            Matthew Hoyland
+          </Typography>
+          <Typography
+            variant="h2"
+            color="text.secondary"
+            sx={{
+              fontSize: { xs: '1.5rem', md: '2rem' },
+              mb: 4,
+              letterSpacing: '-0.02em',
+            }}
+          >
+            Product Manager
+          </Typography>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <Typography
+            variant="body1"
+            color="text.secondary"
+            sx={{
+              maxWidth: '600px',
+              mb: 4,
+              lineHeight: 1.8,
+            }}
+          >
+            I specialize in building innovative products that solve real user problems. 
+            With experience in product strategy, user research, and agile development, 
+            I help teams deliver impactful solutions that drive business growth.
+          </Typography>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <Box sx={{ display: 'flex', gap: 4 }}>
+            <Button
+              component={Link}
+              to="/projects"
+              variant="text"
+              color="primary"
+              sx={{
+                fontSize: '1.125rem',
+                fontWeight: 400,
+                '&:hover': {
+                  backgroundColor: 'transparent',
+                  textDecoration: 'underline',
+                },
+              }}
+            >
+              View My Work
+            </Button>
+            <Button
+              component={Link}
+              to="/about"
+              variant="text"
+              color="primary"
+              sx={{
+                fontSize: '1.125rem',
+                fontWeight: 400,
+                '&:hover': {
+                  backgroundColor: 'transparent',
+                  textDecoration: 'underline',
+                },
+              }}
+            >
+              About Me
+            </Button>
+          </Box>
+        </motion.div>
+      </Box>
+
       <Box
         component={motion.div}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
         sx={{
-          textAlign: 'center',
-          py: 8,
+          position: 'absolute',
+          bottom: { xs: 4, md: 8 },
+          left: { xs: 4, md: 8 },
         }}
       >
         <Typography
-          variant="h1"
-          component={motion.h1}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          gutterBottom
-        >
-          Matthew Hoyland
-        </Typography>
-        <Typography
-          variant="h5"
-          component={motion.h5}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          variant="body2"
           color="text.secondary"
-          gutterBottom
+          sx={{ fontWeight: 400 }}
         >
-          Product Manager
+          Based in Boston, MA
         </Typography>
-        <Typography
-          variant="body1"
-          component={motion.p}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          sx={{ maxWidth: '800px', mx: 'auto', mb: 4 }}
-        >
-          Innovative Product Manager with a passion for creating intuitive digital experiences and driving growth
-          in dynamic environments. Expertise in Product Roadmapping, Data-Driven Decision-Making, and
-          Cross-Functional Collaboration, with a proven track record of delivering impactful solutions and
-          optimizing user satisfaction in B2B and digital-first platforms.
-        </Typography>
-        <Box
-          component={motion.div}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-        >
-          <Button
-            component={RouterLink}
-            to="/projects"
-            variant="contained"
-            size="large"
-            sx={{ mr: 2 }}
-          >
-            View Projects
-          </Button>
-          <Button
-            component={RouterLink}
-            to="/contact"
-            variant="outlined"
-            size="large"
-          >
-            Contact Me
-          </Button>
-        </Box>
       </Box>
     </Container>
   );
