@@ -121,7 +121,7 @@ const Home = () => {
           color="text.secondary"
           sx={{ fontWeight: 400 }}
         >
-          Based in Boston, MA
+          Based in Brooklyn, NY
         </Typography>
       </Box>
     </Container>
