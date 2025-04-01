@@ -12,14 +12,14 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#3b82f6', // Modern blue color
+      main: '#ffffff',
     },
     secondary: {
       main: '#ffffff',
     },
     background: {
-      default: '#0a0a0a',
-      paper: '#1a1a1a',
+      default: '#000000',
+      paper: '#000000',
     },
     text: {
       primary: '#ffffff',
@@ -27,38 +27,43 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
     h1: {
-      fontSize: '2.5rem',
-      fontWeight: 600,
+      fontSize: '3rem',
+      fontWeight: 500,
+      letterSpacing: '-0.02em',
     },
     h2: {
-      fontSize: '2rem',
-      fontWeight: 600,
+      fontSize: '2.25rem',
+      fontWeight: 500,
+      letterSpacing: '-0.02em',
     },
     h3: {
       fontSize: '1.75rem',
-      fontWeight: 600,
+      fontWeight: 500,
+      letterSpacing: '-0.02em',
     },
     h4: {
       fontSize: '1.5rem',
-      fontWeight: 600,
+      fontWeight: 500,
+      letterSpacing: '-0.02em',
     },
     h5: {
       fontSize: '1.25rem',
-      fontWeight: 600,
+      fontWeight: 500,
     },
     h6: {
       fontSize: '1rem',
-      fontWeight: 600,
+      fontWeight: 500,
     },
     body1: {
-      fontSize: '1rem',
-      lineHeight: 1.6,
+      fontSize: '1.125rem',
+      lineHeight: 1.7,
+      letterSpacing: '-0.01em',
     },
     body2: {
-      fontSize: '0.875rem',
-      lineHeight: 1.6,
+      fontSize: '1rem',
+      lineHeight: 1.7,
     },
   },
   components: {
@@ -66,50 +71,25 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: 'none',
-          borderRadius: '8px',
-          padding: '8px 16px',
-          fontWeight: 500,
-        },
-        contained: {
-          backgroundColor: '#3b82f6',
-          '&:hover': {
-            backgroundColor: '#2563eb',
-          },
-        },
-        outlined: {
-          borderColor: 'rgba(255, 255, 255, 0.2)',
-          color: '#ffffff',
-          '&:hover': {
-            borderColor: '#3b82f6',
-            color: '#3b82f6',
-          },
+          borderRadius: 0,
+          padding: '8px 0',
+          minWidth: 'auto',
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          backgroundColor: '#1a1a1a',
-          borderRadius: '12px',
+          backgroundColor: 'transparent',
+          borderRadius: 0,
           border: '1px solid rgba(255, 255, 255, 0.1)',
         },
       },
     },
-    MuiChip: {
+    MuiContainer: {
       styleOverrides: {
         root: {
-          backgroundColor: 'rgba(255, 255, 255, 0.1)',
-          color: '#ffffff',
-          '&:hover': {
-            backgroundColor: 'rgba(255, 255, 255, 0.15)',
-          },
-        },
-      },
-    },
-    MuiDivider: {
-      styleOverrides: {
-        root: {
-          borderColor: 'rgba(255, 255, 255, 0.1)',
+          maxWidth: '1200px',
         },
       },
     },
@@ -123,12 +103,13 @@ function App() {
       <Router basename="/portfolio">
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           <Navbar />
-          <Box component="main" sx={{ flexGrow: 1, py: 4 }}>
+          <Box component="main" sx={{ flexGrow: 1, py: 8 }}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<Home />} />
             </Routes>
           </Box>
         </Box>
