@@ -153,7 +153,7 @@ const Contact = () => {
                 variant="contained"
                 color="primary"
                 startIcon={<EmailIcon />}
-                href="mailto:matthew.hoyland@gmail.com"
+                href="mailto:mthoyland@gmail.com"
               >
                 Email
               </Button>
