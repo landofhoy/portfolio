@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider, CssBaseline, Box } from '@mui/material';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { theme } from './theme';
 import Navbar from './components/Navbar';
 import Landing from './pages/Landing';
