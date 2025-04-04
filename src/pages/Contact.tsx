@@ -23,8 +23,14 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log(formData);
+    const subject = `Portfolio Contact from ${formData.name}`;
+    const body = `Name: ${formData.name}
+Email: ${formData.email}
+
+Message:
+${formData.message}`;
+    
+    window.location.href = `mailto:mthoyland@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
