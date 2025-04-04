@@ -8,8 +8,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 const projects = [
   {
     title: 'Quotation Flexibility Initiative',
-    role: 'Digital Platform Specialist (North America)',
-    duration: 'Jan 2022 – Present',
+    role: 'Associate Product Manager',
     company: 'Festo',
     problem: 'Customers frequently lost access to discounted pricing when previously issued quotations expired before purchase, resulting in order abandonment and an overreliance on manual support channels to reinstate pricing.',
     approach: [
@@ -26,8 +25,7 @@ const projects = [
   },
   {
     title: 'Quantity Contracts Digitization',
-    role: 'Digital Platform Specialist (North America)',
-    duration: 'Jan 2022 – Present',
+    role: 'Associate Product Manager',
     company: 'Festo',
     problem: 'Recurring B2B purchases required manual referencing of past orders or contract terms, consuming significant sales agent time and creating friction for repeat buyers.',
     approach: [
@@ -44,8 +42,7 @@ const projects = [
   },
   {
     title: 'Enhanced PO Upload (AI/OCR Integration)',
-    role: 'Digital Platform Specialist (North America)',
-    duration: 'Jan 2022 – Present',
+    role: 'Associate Product Manager',
     company: 'Festo',
     problem: 'Customers submitting purchase orders via PDF or scanned documents often caused delays due to manual processing, misinterpretation, or errors, resulting in slower order fulfillment and higher support load.',
     approach: [
@@ -62,8 +59,7 @@ const projects = [
   },
   {
     title: 'Enhanced Configurators Expansion',
-    role: 'Digital Platform Specialist (North America)',
-    duration: 'Jan 2022 – Present',
+    role: 'Associate Product Manager',
     company: 'Festo',
     problem: 'Limited access to product configurators was restricting partner sales and customer self-service for configurable components, leading to missed opportunities and increased support queries.',
     approach: [
@@ -80,8 +76,7 @@ const projects = [
   },
   {
     title: 'Distribution Portal Localization',
-    role: 'Digital Platform Specialist (North America)',
-    duration: 'Jan 2022 – Present',
+    role: 'Associate Product Manager',
     company: 'Festo',
     problem: 'Key distributors lacked access to centralized, localized data resources—resulting in inefficient order tracking, pricing confusion, and heavy dependence on support teams.',
     approach: [
@@ -98,8 +93,7 @@ const projects = [
   },
   {
     title: 'Strategic Couponing Initiative',
-    role: 'Digital Platform Specialist (North America)',
-    duration: 'Jan 2022 – Present',
+    role: 'Associate Product Manager',
     company: 'Festo',
     problem: 'Customer retention rates plateaued, and specific product groups were underperforming in targeted segments despite competitive pricing.',
     approach: [
@@ -115,8 +109,7 @@ const projects = [
   },
   {
     title: 'Material Activation App',
-    role: 'Digital Platform Specialist (North America)',
-    duration: 'Jan 2022 – Present',
+    role: 'Associate Product Manager',
     company: 'Festo',
     problem: 'The manual process of activating new materials in the internal system was backlogged and slow, taking up to three weeks and delaying product availability on the online shop.',
     approach: [
@@ -218,9 +211,6 @@ const Projects = () => {
                     <Box sx={{ mb: 4 }}>
                       <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
                         {project.company} – {project.role}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {project.duration}
                       </Typography>
                     </Box>
 
