@@ -1,85 +1,66 @@
 import React from 'react';
 import { Container, Typography, Box, Button } from '@mui/material';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import ScrollAnimation from '../components/ScrollAnimation';
 
 const Home = () => {
   return (
     <Container maxWidth="lg">
       <Box
         sx={{
-          minHeight: '80vh',
+          minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          gap: 4,
+          alignItems: 'center',
+          textAlign: 'center',
         }}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <ScrollAnimation>
           <Typography
             variant="h1"
             sx={{
-              fontSize: { xs: '2.5rem', md: '3.5rem' },
+              fontSize: { xs: '3rem', md: '5rem' },
               mb: 2,
               letterSpacing: '-0.02em',
+              fontWeight: 700,
+              color: 'white',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
             }}
           >
             Matthew Hoyland
           </Typography>
+        </ScrollAnimation>
+
+        <ScrollAnimation delay={0.2}>
           <Typography
             variant="h2"
-            color="text.secondary"
             sx={{
-              fontSize: { xs: '1.5rem', md: '2rem' },
-              mb: 4,
+              fontSize: { xs: '1.5rem', md: '2.5rem' },
+              mb: 6,
               letterSpacing: '-0.02em',
+              color: 'text.secondary',
+              fontWeight: 400,
             }}
           >
             Product Manager
           </Typography>
-        </motion.div>
+        </ScrollAnimation>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <Typography
-            variant="body1"
-            color="text.secondary"
-            sx={{
-              maxWidth: '600px',
-              mb: 4,
-              lineHeight: 1.8,
-            }}
-          >
-            I specialize in building innovative products that solve real user problems. 
-            With experience in product strategy, user research, and agile development, 
-            I help teams deliver impactful solutions that drive business growth.
-          </Typography>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <Box sx={{ display: 'flex', gap: 4 }}>
+        <ScrollAnimation delay={0.4}>
+          <Box sx={{ display: 'flex', gap: 3 }}>
             <Button
               component={Link}
               to="/projects"
-              variant="text"
-              color="primary"
+              variant="contained"
               sx={{
-                fontSize: '1.125rem',
-                fontWeight: 400,
+                px: 4,
+                py: 1.5,
+                fontSize: '1rem',
+                backgroundColor: 'white',
+                color: 'black',
                 '&:hover': {
-                  backgroundColor: 'transparent',
-                  textDecoration: 'underline',
+                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
                 },
               }}
             >
@@ -87,42 +68,24 @@ const Home = () => {
             </Button>
             <Button
               component={Link}
-              to="/about"
-              variant="text"
-              color="primary"
+              to="/contact"
+              variant="outlined"
               sx={{
-                fontSize: '1.125rem',
-                fontWeight: 400,
+                px: 4,
+                py: 1.5,
+                fontSize: '1rem',
+                borderColor: 'white',
+                color: 'white',
                 '&:hover': {
-                  backgroundColor: 'transparent',
-                  textDecoration: 'underline',
+                  borderColor: 'white',
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 },
               }}
             >
-              About Me
+              Get in Touch
             </Button>
           </Box>
-        </motion.div>
-      </Box>
-
-      <Box
-        component={motion.div}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        sx={{
-          position: 'absolute',
-          bottom: { xs: 4, md: 8 },
-          left: { xs: 4, md: 8 },
-        }}
-      >
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          sx={{ fontWeight: 400 }}
-        >
-          Based in Brooklyn, NY
-        </Typography>
+        </ScrollAnimation>
       </Box>
     </Container>
   );

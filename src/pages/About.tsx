@@ -1,99 +1,77 @@
 import React from 'react';
-import { Container, Typography, Grid, Paper, Box, LinearProgress } from '@mui/material';
-import { motion } from 'framer-motion';
-import CustomGrid from '../components/CustomGrid';
+import { Container, Typography, Box, Paper } from '@mui/material';
+import ScrollAnimation from '../components/ScrollAnimation';
 
 const skills = [
-  { name: 'Product Management', level: 95 },
-  { name: 'Agile & Scrum', level: 90 },
-  { name: 'A/B Testing', level: 85 },
-  { name: 'Product Lifecycle Management', level: 90 },
-  { name: 'User-Centered Design', level: 85 },
-  { name: 'Project Management', level: 90 },
-  { name: 'Technical Tools', level: 85 },
-  { name: 'Stakeholder Communication', level: 95 },
+  'Product Management',
+  'User Research',
+  'Data Analysis',
+  'Agile Development',
+  'Cross-functional Leadership'
 ];
 
 const About = () => {
   return (
     <Container maxWidth="lg">
-      <Box sx={{ py: 4 }}>
-        <Typography
-          variant="h2"
-          component={motion.h2}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          gutterBottom
-        >
-          About Me
-        </Typography>
-        <CustomGrid container spacing={4}>
-          <CustomGrid xs={12} md={6} item>
-            <Paper
-              component={motion.div}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              sx={{ p: 3, height: '100%' }}
-            >
-              <Typography variant="h5" gutterBottom>
-                Experience
-              </Typography>
-              <Typography variant="h6" gutterBottom>
-                Festo - Associate Product Manager
-              </Typography>
-              <Typography variant="subtitle1" color="text.secondary" gutterBottom>
-                January 2022 - Present
-              </Typography>
-              <Typography variant="body1" paragraph>
-                • Spearheaded the Quotation Flexibility initiative, enabling customers to retain discounted pricing
-                with previously used quotations. Achieved a 7% growth in online sales and reduced quote
-                expirations by 30%.
-              </Typography>
-              <Typography variant="body1" paragraph>
-                • Designed and launched the Quantity Contracts process, digitizing order referencing for customers
-                and saving agents up to 15 hours weekly. Resulted in a 10% increase in online sales.
-              </Typography>
-              <Typography variant="body1" paragraph>
-                • Implemented AI/OCR-based Enhanced PO Upload for efficient order processing, projected to
-                boost online sales by 15%.
-              </Typography>
-            </Paper>
-          </CustomGrid>
-          <CustomGrid xs={12} md={6} item>
-            <Paper
-              component={motion.div}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              sx={{ p: 3, height: '100%' }}
-            >
-              <Typography variant="h5" gutterBottom>
-                Skills
-              </Typography>
-              {skills.map((skill, index) => (
-                <Box key={skill.name} sx={{ mb: 2 }}>
-                  <Typography variant="body1" gutterBottom>
-                    {skill.name}
-                  </Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    value={skill.level}
-                    sx={{
-                      height: 8,
-                      borderRadius: 4,
-                      backgroundColor: 'rgba(0, 0, 0, 0.1)',
-                      '& .MuiLinearProgress-bar': {
-                        borderRadius: 4,
-                      },
-                    }}
-                  />
-                </Box>
+      <Box sx={{ py: 8 }}>
+        <ScrollAnimation>
+          <Typography variant="h2" gutterBottom>
+            About Me
+          </Typography>
+        </ScrollAnimation>
+
+        <ScrollAnimation delay={0.2}>
+          <Paper
+            sx={{
+              p: 4,
+              mb: 6,
+              background: 'rgba(255, 255, 255, 0.05)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+            }}
+          >
+            <Typography variant="body1" paragraph>
+              Hi, I'm Matthew Hoyland — a Product Manager with a passion for building intuitive, data-backed digital experiences that solve real problems.
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Born and raised in Canada, I moved to New York for high school, headed back to Toronto for university, and eventually made my way back to NYC, where I now help shape the future of B2B eCommerce at Festo. My career has grown from intern to Associate Product Manager, and that path has kept me grounded in what matters most: the customer.
+            </Typography>
+            <Typography variant="body1">
+              With an education in Chemistry, I bring a unique lens to product development — one that's curious, methodical, and deeply analytical. Whether it's uncovering friction points in complex order flows or building a new internal tool from the ground up, I use data to inform my decisions and cross-functional collaboration to drive results.
+            </Typography>
+          </Paper>
+        </ScrollAnimation>
+
+        <ScrollAnimation delay={0.4}>
+          <Typography variant="h3" gutterBottom>
+            Skills
+          </Typography>
+          <Paper
+            sx={{
+              p: 4,
+              background: 'rgba(255, 255, 255, 0.05)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+            }}
+          >
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+              {skills.map((skill) => (
+                <Typography
+                  key={skill}
+                  variant="body1"
+                  sx={{
+                    px: 2,
+                    py: 1,
+                    borderRadius: 1,
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  }}
+                >
+                  {skill}
+                </Typography>
               ))}
-            </Paper>
-          </CustomGrid>
-        </CustomGrid>
+            </Box>
+          </Paper>
+        </ScrollAnimation>
       </Box>
     </Container>
   );

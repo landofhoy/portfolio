@@ -10,65 +10,46 @@ import {
 
 const Navbar = () => {
   return (
-    <AppBar 
-      position="sticky" 
-      elevation={0}
-      sx={{ 
-        backgroundColor: 'transparent',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+    <AppBar
+      position="fixed"
+      sx={{
+        background: 'transparent',
+        boxShadow: 'none',
       }}
     >
-      <Toolbar sx={{ justifyContent: 'space-between' }}>
+      <Toolbar>
         <Typography
           variant="h6"
           component={Link}
-          to="/"
+          to="/home"
           sx={{
-            color: 'text.primary',
+            flexGrow: 1,
             textDecoration: 'none',
-            fontWeight: 500,
-            '&:hover': {
-              color: 'primary.main',
-            },
+            color: 'white',
+            fontWeight: 400,
           }}
         >
           Matthew Hoyland
         </Typography>
-
         <Box sx={{ display: 'flex', gap: 4 }}>
           <Button
-            color="inherit"
             component={Link}
             to="/projects"
-            sx={{ 
-              '&:hover': { color: 'primary.main' },
-              textTransform: 'none',
-              fontWeight: 400,
-            }}
+            sx={{ color: 'white', textTransform: 'none' }}
           >
             Work
           </Button>
           <Button
-            color="inherit"
             component={Link}
             to="/about"
-            sx={{ 
-              '&:hover': { color: 'primary.main' },
-              textTransform: 'none',
-              fontWeight: 400,
-            }}
+            sx={{ color: 'white', textTransform: 'none' }}
           >
             About
           </Button>
           <Button
-            color="inherit"
             component={Link}
             to="/contact"
-            sx={{ 
-              '&:hover': { color: 'primary.main' },
-              textTransform: 'none',
-              fontWeight: 400,
-            }}
+            sx={{ color: 'white', textTransform: 'none' }}
           >
             Connect
           </Button>

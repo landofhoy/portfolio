@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Container, Typography, Box, Divider, MobileStepper, IconButton } from '@mui/material';
+import { Container, Typography, Box, Divider, MobileStepper, IconButton, Card, CardContent } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import SwipeableViews from 'react-swipeable-views';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import ScrollAnimation from '../components/ScrollAnimation';
 
 const projects = [
   {
@@ -144,175 +145,157 @@ const Projects = () => {
 
   return (
     <Container maxWidth="lg">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <Typography
-          variant="h1"
-          sx={{
-            fontSize: { xs: '2rem', md: '2.5rem' },
-            mb: 6,
-            letterSpacing: '-0.02em',
-          }}
-        >
-          Selected Work
-        </Typography>
-      </motion.div>
+      <Box sx={{ py: 8 }}>
+        <ScrollAnimation>
+          <Typography
+            variant="h1"
+            sx={{
+              fontSize: { xs: '2rem', md: '2.5rem' },
+              mb: 6,
+              letterSpacing: '-0.02em',
+            }}
+          >
+            Selected Work
+          </Typography>
+        </ScrollAnimation>
 
-      <Box sx={{ position: 'relative' }}>
-        <IconButton
-          onClick={handleBack}
-          disabled={activeStep === 0}
-          sx={{
-            position: 'fixed',
-            left: { xs: 16, md: 32 },
-            top: '50%',
-            transform: 'translateY(-50%)',
-            backgroundColor: 'background.paper',
-            boxShadow: 2,
-            '&:hover': {
+        <Box sx={{ position: 'relative' }}>
+          <IconButton
+            onClick={handleBack}
+            disabled={activeStep === 0}
+            sx={{
+              position: 'fixed',
+              left: { xs: 16, md: 32 },
+              top: '50%',
+              transform: 'translateY(-50%)',
               backgroundColor: 'background.paper',
-            },
-            zIndex: 1000,
-          }}
-        >
-          <KeyboardArrowLeft />
-        </IconButton>
+              boxShadow: 3,
+              '&:hover': {
+                backgroundColor: 'background.paper',
+                transform: 'translateY(-50%) translateX(-2px)',
+              },
+              transition: 'all 0.2s ease-in-out',
+              zIndex: 1000,
+            }}
+          >
+            <KeyboardArrowLeft />
+          </IconButton>
 
-        <SwipeableViews
-          index={activeStep}
-          onChangeIndex={handleStepChange}
-          enableMouseEvents
-          style={{ overflow: 'hidden' }}
-        >
-          {projects.map((project, index) => (
-            <div key={project.title}>
-              {Math.abs(activeStep - index) <= 2 ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
+          <SwipeableViews
+            index={activeStep}
+            onChangeIndex={handleStepChange}
+            enableMouseEvents
+            style={{ overflow: 'hidden' }}
+          >
+            {projects.map((project, index) => (
+              <Box key={index} sx={{ px: { xs: 2, md: 8 }, pb: 8 }}>
+                <Card
+                  sx={{
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                  }}
                 >
-                  <Box sx={{ mb: 12, minHeight: '70vh' }}>
-                    <Typography
-                      variant="h2"
-                      sx={{
-                        fontSize: { xs: '1.75rem', md: '2rem' },
-                        mb: 2,
-                        letterSpacing: '-0.02em',
-                      }}
-                    >
+                  <CardContent>
+                    <Typography variant="h4" gutterBottom>
                       {project.title}
                     </Typography>
-                    
-                    <Box sx={{ mb: 4 }}>
-                      <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                        {project.company} – {project.role}
-                      </Typography>
+                    <Typography variant="h6" color="text.secondary" gutterBottom>
+                      {project.role} at {project.company}
+                    </Typography>
+                    <Divider sx={{ my: 2 }} />
+                    <Typography variant="h6" gutterBottom>
+                      Problem
+                    </Typography>
+                    <Typography variant="body1" paragraph>
+                      {project.problem}
+                    </Typography>
+                    <Typography variant="h6" gutterBottom>
+                      Approach
+                    </Typography>
+                    <Box component="ul" sx={{ pl: 2, mb: 2 }}>
+                      {project.approach.map((item, i) => (
+                        <Typography key={i} component="li" variant="body1" paragraph>
+                          {item}
+                        </Typography>
+                      ))}
                     </Box>
-
-                    <Box sx={{ mb: 6 }}>
-                      <Typography variant="h3" sx={{ fontSize: '1.25rem', mb: 2 }}>
-                        Problem
-                      </Typography>
-                      <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-                        {project.problem}
-                      </Typography>
-
-                      <Typography variant="h3" sx={{ fontSize: '1.25rem', mb: 2 }}>
-                        Approach
-                      </Typography>
-                      <Box component="ul" sx={{ pl: 2, mb: 4 }}>
-                        {project.approach.map((step, i) => (
-                          <Typography
-                            key={i}
-                            component="li"
-                            variant="body1"
-                            color="text.secondary"
-                            sx={{ mb: 1 }}
-                          >
-                            {step}
-                          </Typography>
-                        ))}
-                      </Box>
-
-                      <Typography variant="h3" sx={{ fontSize: '1.25rem', mb: 2 }}>
-                        Solution
-                      </Typography>
-                      <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-                        {project.solution}
-                      </Typography>
-
-                      <Typography variant="h3" sx={{ fontSize: '1.25rem', mb: 2 }}>
-                        Outcomes
-                      </Typography>
-                      <Box component="ul" sx={{ pl: 2, mb: 4 }}>
-                        {project.outcomes.map((outcome, i) => (
-                          <Typography
-                            key={i}
-                            component="li"
-                            variant="body1"
-                            color="text.secondary"
-                            sx={{ mb: 1 }}
-                          >
-                            {outcome}
-                          </Typography>
-                        ))}
-                      </Box>
+                    <Typography variant="h6" gutterBottom>
+                      Solution
+                    </Typography>
+                    <Typography variant="body1" paragraph>
+                      {project.solution}
+                    </Typography>
+                    <Typography variant="h6" gutterBottom>
+                      Outcomes
+                    </Typography>
+                    <Box component="ul" sx={{ pl: 2, mb: 2 }}>
+                      {project.outcomes.map((outcome, i) => (
+                        <Typography key={i} component="li" variant="body1" paragraph>
+                          {outcome}
+                        </Typography>
+                      ))}
                     </Box>
-                  </Box>
-                </motion.div>
-              ) : null}
-            </div>
-          ))}
-        </SwipeableViews>
+                  </CardContent>
+                </Card>
+              </Box>
+            ))}
+          </SwipeableViews>
 
-        <IconButton
-          onClick={handleNext}
-          disabled={activeStep === maxSteps - 1}
-          sx={{
-            position: 'fixed',
-            right: { xs: 16, md: 32 },
-            top: '50%',
-            transform: 'translateY(-50%)',
-            backgroundColor: 'background.paper',
-            boxShadow: 2,
-            '&:hover': {
+          <IconButton
+            onClick={handleNext}
+            disabled={activeStep === maxSteps - 1}
+            sx={{
+              position: 'fixed',
+              right: { xs: 16, md: 32 },
+              top: '50%',
+              transform: 'translateY(-50%)',
               backgroundColor: 'background.paper',
-            },
-            zIndex: 1000,
-          }}
-        >
-          <KeyboardArrowRight />
-        </IconButton>
-      </Box>
+              boxShadow: 3,
+              '&:hover': {
+                backgroundColor: 'background.paper',
+                transform: 'translateY(-50%) translateX(2px)',
+              },
+              transition: 'all 0.2s ease-in-out',
+              zIndex: 1000,
+            }}
+          >
+            <KeyboardArrowRight />
+          </IconButton>
+        </Box>
 
-      <Box sx={{ 
-        position: 'fixed', 
-        bottom: 40, 
-        left: '50%', 
-        transform: 'translateX(-50%)',
-        zIndex: 1000,
-      }}>
-        <MobileStepper
-          steps={maxSteps}
-          position="static"
-          activeStep={activeStep}
-          sx={{
-            backgroundColor: 'transparent',
-            '& .MuiMobileStepper-dot': {
-              backgroundColor: 'rgba(255, 255, 255, 0.3)',
-            },
-            '& .MuiMobileStepper-dotActive': {
-              backgroundColor: 'primary.main',
-            },
-          }}
-          nextButton={null}
-          backButton={null}
-        />
+        <Box sx={{ 
+          position: 'fixed', 
+          bottom: 40, 
+          left: '50%', 
+          transform: 'translateX(-50%)',
+          zIndex: 1000,
+        }}>
+          <MobileStepper
+            steps={maxSteps}
+            position="static"
+            activeStep={activeStep}
+            sx={{
+              backgroundColor: 'transparent',
+              '& .MuiMobileStepper-dot': {
+                backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                transition: 'all 0.2s ease-in-out',
+                '&:hover': {
+                  transform: 'scale(1.2)',
+                },
+              },
+              '& .MuiMobileStepper-dotActive': {
+                backgroundColor: 'primary.main',
+                transform: 'scale(1.2)',
+              },
+            }}
+            nextButton={null}
+            backButton={null}
+          />
+        </Box>
       </Box>
     </Container>
   );

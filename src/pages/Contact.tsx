@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
-import {
-  Container,
-  Typography,
-  Grid,
-  TextField,
-  Button,
-  Box,
-  Snackbar,
-  Alert,
-  Paper,
-} from '@mui/material';
+import { Container, Typography, Box, TextField, Button, Paper, IconButton } from '@mui/material';
 import { motion } from 'framer-motion';
+import ScrollAnimation from '../components/ScrollAnimation';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
-import CustomGrid from '../components/CustomGrid';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -22,162 +12,157 @@ const Contact = () => {
     email: '',
     message: '',
   });
-  const [snackbar, setSnackbar] = useState({
-    open: false,
-    message: '',
-    severity: 'success' as 'success' | 'error',
-  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle the form submission
-    setSnackbar({
-      open: true,
-      message: 'Message sent successfully!',
-      severity: 'success',
-    });
-    setFormData({ name: '', email: '', message: '' });
-  };
-
-  const handleCloseSnackbar = () => {
-    setSnackbar({ ...snackbar, open: false });
+    // Handle form submission here
+    console.log(formData);
   };
 
   return (
     <Container maxWidth="lg">
-      <Box sx={{ py: 4 }}>
+      <ScrollAnimation>
         <Typography
-          variant="h2"
-          component={motion.h2}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          gutterBottom
+          variant="h1"
+          sx={{
+            fontSize: { xs: '2rem', md: '2.5rem' },
+            mb: 6,
+            letterSpacing: '-0.02em',
+          }}
         >
-          Contact Me
+          Get in Touch
         </Typography>
-        <CustomGrid container spacing={4}>
-          <CustomGrid xs={12} md={6} item>
-            <Paper
-              component={motion.div}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              sx={{ p: 3, height: '100%' }}
-            >
-              <Typography variant="h5" gutterBottom>
-                Get in Touch
-              </Typography>
-              <form onSubmit={handleSubmit}>
-                <TextField
-                  fullWidth
-                  label="Name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  margin="normal"
-                  required
-                />
-                <TextField
-                  fullWidth
-                  label="Email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  margin="normal"
-                  required
-                />
-                <TextField
-                  fullWidth
-                  label="Message"
-                  name="message"
-                  multiline
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  margin="normal"
-                  required
-                />
-                <Button
-                  type="submit"
-                  variant="contained"
-                  size="large"
-                  sx={{ mt: 2 }}
-                >
-                  Send Message
-                </Button>
-              </form>
-            </Paper>
-          </CustomGrid>
-          <CustomGrid xs={12} md={6} item>
-            <Paper
-              component={motion.div}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              sx={{ p: 3, height: '100%' }}
-            >
-              <Typography variant="h5" gutterBottom>
-                Connect With Me
-              </Typography>
-              <Box sx={{ mt: 4 }}>
-                <Typography variant="body1" paragraph>
-                  Email: mthoyland@gmail.com
-                </Typography>
-                <Typography variant="body1" paragraph>
-                  Location: Brooklyn, NY
-                </Typography>
-                <Typography variant="body1" paragraph>
-                  Phone: 631-413-0818
-                </Typography>
-              </Box>
-              <Box sx={{ mt: 4 }}>
-                <Typography variant="h6" gutterBottom>
-                  Social Links
-                </Typography>
-                <Box sx={{ display: 'flex', gap: 2 }}>
-                  <Button
-                    href="https://www.linkedin.com/in/matthewhoyland/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    startIcon={<LinkedInIcon />}
-                    variant="outlined"
-                  >
-                    LinkedIn
-                  </Button>
-                  <Button
-                    href="mailto:mthoyland@gmail.com"
-                    startIcon={<EmailIcon />}
-                    variant="outlined"
-                  >
-                    Email
-                  </Button>
-                </Box>
-              </Box>
-            </Paper>
-          </CustomGrid>
-        </CustomGrid>
-        <Snackbar
-          open={snackbar.open}
-          autoHideDuration={6000}
-          onClose={handleCloseSnackbar}
-        >
-          <Alert
-            onClose={handleCloseSnackbar}
-            severity={snackbar.severity}
-            sx={{ width: '100%' }}
+      </ScrollAnimation>
+
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
+        <ScrollAnimation delay={0.1}>
+          <Paper
+            sx={{
+              p: 4,
+              flex: 1,
+              transition: 'all 0.3s ease-in-out',
+              '&:hover': {
+                transform: 'translateY(-4px)',
+                boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
+              },
+            }}
           >
-            {snackbar.message}
-          </Alert>
-        </Snackbar>
+            <Typography variant="h2" sx={{ mb: 4, fontSize: '1.75rem' }}>
+              Send a Message
+            </Typography>
+            <form onSubmit={handleSubmit}>
+              <TextField
+                fullWidth
+                label="Name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                margin="normal"
+                sx={{ mb: 2 }}
+              />
+              <TextField
+                fullWidth
+                label="Email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                margin="normal"
+                sx={{ mb: 2 }}
+              />
+              <TextField
+                fullWidth
+                label="Message"
+                name="message"
+                multiline
+                rows={4}
+                value={formData.message}
+                onChange={handleChange}
+                margin="normal"
+                sx={{ mb: 3 }}
+              />
+              <Button
+                type="submit"
+                variant="contained"
+                size="large"
+                sx={{
+                  width: '100%',
+                  py: 1.5,
+                  transition: 'all 0.2s ease-in-out',
+                  '&:hover': {
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+                  },
+                }}
+              >
+                Send Message
+              </Button>
+            </form>
+          </Paper>
+        </ScrollAnimation>
+
+        <ScrollAnimation delay={0.2}>
+          <Paper
+            sx={{
+              p: 4,
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'all 0.3s ease-in-out',
+              '&:hover': {
+                transform: 'translateY(-4px)',
+                boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
+              },
+            }}
+          >
+            <Typography variant="h2" sx={{ mb: 4, fontSize: '1.75rem' }}>
+              Connect With Me
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', mt: 4 }}>
+              <Button
+                variant="contained"
+                color="primary"
+                startIcon={<GitHubIcon />}
+                href="https://github.com/landofhoy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </Button>
+              <Button
+                variant="contained"
+                color="primary"
+                startIcon={<LinkedInIcon />}
+                href="https://www.linkedin.com/in/matthew-hoyland/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </Button>
+              <Button
+                variant="contained"
+                color="primary"
+                startIcon={<EmailIcon />}
+                href="mailto:matthew.hoyland@gmail.com"
+              >
+                Email
+              </Button>
+            </Box>
+            <Typography variant="body1" align="center" color="text.secondary">
+              Feel free to reach out through any of these channels. I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and product management.
+            </Typography>
+          </Paper>
+        </ScrollAnimation>
       </Box>
     </Container>
   );
