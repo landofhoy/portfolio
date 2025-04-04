@@ -149,7 +149,7 @@ ${formData.message}`;
                 variant="contained"
                 color="primary"
                 startIcon={<LinkedInIcon />}
-                href="https://www.linkedin.com/in/matthew-hoyland/"
+                href="https://www.linkedin.com/in/matthewhoyland/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -159,7 +159,7 @@ ${formData.message}`;
                 variant="contained"
                 color="primary"
                 startIcon={<EmailIcon />}
-                href="mailto:matthew.hoyland@gmail.com"
+                href="mailto:mthoyland@gmail.com"
               >
                 Email
               </Button>
