@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Typography, Box, Paper } from '@mui/material';
+import { Container, Typography, Box, Paper, Button } from '@mui/material';
 import ScrollAnimation from '../components/ScrollAnimation';
+import DescriptionIcon from '@mui/icons-material/Description';
 
 const skills = [
   'Product Management',
@@ -49,6 +50,7 @@ const About = () => {
           <Paper
             sx={{
               p: 4,
+              mb: 6,
               background: 'rgba(255, 255, 255, 0.05)',
               backdropFilter: 'blur(10px)',
               border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -71,6 +73,33 @@ const About = () => {
               ))}
             </Box>
           </Paper>
+        </ScrollAnimation>
+
+        <ScrollAnimation delay={0.6}>
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Button
+              variant="contained"
+              startIcon={<DescriptionIcon />}
+              href="/Matthew Hoyland Resume for Website.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                px: 4,
+                py: 1.5,
+                fontSize: '1rem',
+                backgroundColor: 'white',
+                color: 'black',
+                transition: 'all 0.2s ease-in-out',
+                '&:hover': {
+                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+                },
+              }}
+            >
+              View Resume
+            </Button>
+          </Box>
         </ScrollAnimation>
       </Box>
     </Container>
