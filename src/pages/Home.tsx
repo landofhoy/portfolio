@@ -14,22 +14,36 @@ const Home = () => {
           justifyContent: 'center',
           alignItems: 'center',
           textAlign: 'center',
+          pt: { xs: 8, md: 4 },
+          pb: { xs: 8, md: 4 },
         }}
       >
         <ScrollAnimation>
           <Box
-            component="img"
-            src="/headshot.jpg"
-            alt="Matthew Hoyland"
             sx={{
-              width: { xs: 120, md: 160 },
-              height: { xs: 120, md: 160 },
+              width: { xs: 140, md: 190 },
+              height: { xs: 140, md: 190 },
               borderRadius: '50%',
-              objectFit: 'cover',
+              overflow: 'hidden',
               mb: 3,
-              border: '3px solid rgba(255,255,255,0.15)',
+              border: '3px solid rgba(58, 120, 201, 0.5)',
+              flexShrink: 0,
             }}
-          />
+          >
+            <Box
+              component="img"
+              src="/headshot.jpg"
+              alt="Matthew Hoyland"
+              sx={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center 20%',
+                display: 'block',
+                imageRendering: 'auto',
+              }}
+            />
+          </Box>
         </ScrollAnimation>
 
         <ScrollAnimation>
@@ -59,7 +73,7 @@ const Home = () => {
               fontWeight: 400,
             }}
           >
-            B2B eCommerce Product Manager
+            Product Manager - eCommerce Platform
           </Typography>
         </ScrollAnimation>
 
@@ -71,7 +85,7 @@ const Home = () => {
               mb: 6,
               letterSpacing: '-0.01em',
               color: 'text.secondary',
-              fontWeight: 300,
+              fontWeight: 400,
               fontStyle: 'italic',
             }}
           >
@@ -89,10 +103,10 @@ const Home = () => {
                 px: 4,
                 py: 1.5,
                 fontSize: '1rem',
-                backgroundColor: 'white',
-                color: 'black',
+                backgroundColor: 'primary.main',
+                color: 'white',
                 '&:hover': {
-                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  backgroundColor: '#2d67b8',
                 },
               }}
             >
