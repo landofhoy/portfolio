@@ -17,6 +17,22 @@ const Home = () => {
         }}
       >
         <ScrollAnimation>
+          <Box
+            component="img"
+            src="/headshot.jpg"
+            alt="Matthew Hoyland"
+            sx={{
+              width: { xs: 120, md: 160 },
+              height: { xs: 120, md: 160 },
+              borderRadius: '50%',
+              objectFit: 'cover',
+              mb: 3,
+              border: '3px solid rgba(255,255,255,0.15)',
+            }}
+          />
+        </ScrollAnimation>
+
+        <ScrollAnimation>
           <Typography
             variant="h1"
             sx={{
@@ -36,14 +52,30 @@ const Home = () => {
           <Typography
             variant="h2"
             sx={{
-              fontSize: { xs: '1.5rem', md: '2.5rem' },
-              mb: 6,
+              fontSize: { xs: '1.25rem', md: '1.75rem' },
+              mb: 2,
               letterSpacing: '-0.02em',
               color: 'text.secondary',
               fontWeight: 400,
             }}
           >
-            Product Manager
+            B2B eCommerce Product Manager
+          </Typography>
+        </ScrollAnimation>
+
+        <ScrollAnimation delay={0.3}>
+          <Typography
+            variant="h3"
+            sx={{
+              fontSize: { xs: '1rem', md: '1.25rem' },
+              mb: 6,
+              letterSpacing: '-0.01em',
+              color: 'text.secondary',
+              fontWeight: 300,
+              fontStyle: 'italic',
+            }}
+          >
+            Solving customer friction to unlock revenue growth and operational efficiency
           </Typography>
         </ScrollAnimation>
 

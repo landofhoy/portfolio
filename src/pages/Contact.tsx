@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Typography, Box, Button, Paper } from '@mui/material';
 import ScrollAnimation from '../components/ScrollAnimation';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 
@@ -79,30 +78,10 @@ const Contact = () => {
             >
               Email
             </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              startIcon={<GitHubIcon />}
-              href="https://github.com/landofhoy"
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                px: 4,
-                py: 1.5,
-                fontSize: '1rem',
-                transition: 'all 0.2s ease-in-out',
-                '&:hover': {
-                  transform: 'translateY(-2px)',
-                  boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
-                },
-              }}
-            >
-              GitHub
-            </Button>
           </Box>
-          
+
           <Typography variant="body1" align="center" color="text.secondary" sx={{ maxWidth: '600px' }}>
-            Feel free to reach out through any of these channels. I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and product management.
+            Always open to interesting conversations about product, technology, and new ideas — feel free to reach out.
           </Typography>
         </Paper>
       </ScrollAnimation>

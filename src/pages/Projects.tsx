@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Typography, Box, Divider, MobileStepper, IconButton, Card, CardContent } from '@mui/material';
+import { Container, Typography, Box, Divider, IconButton, Card, CardContent, Chip } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import SwipeableViews from 'react-swipeable-views';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
@@ -151,12 +151,50 @@ const Projects = () => {
             variant="h1"
             sx={{
               fontSize: { xs: '2rem', md: '2.5rem' },
-              mb: 6,
+              mb: 2,
               letterSpacing: '-0.02em',
             }}
           >
             Selected Work
           </Typography>
+          <Typography variant="body1" color="text.secondary" sx={{ mb: 4, maxWidth: 680 }}>
+            All projects below are from my time at{' '}
+            <Box component="span" sx={{ color: 'text.primary' }}>Festo</Box>
+            {' '}— a German multinational and global leader in industrial automation, operating a €1B+ B2B eCommerce platform across 70 countries. I progressed from Associate Product Manager to Product Manager during this time.
+          </Typography>
+        </ScrollAnimation>
+
+        {/* Named project navigation */}
+        <ScrollAnimation delay={0.1}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: 1,
+              mb: 4,
+              pr: { xs: 7, md: 10 },
+            }}
+          >
+            {projects.map((project, index) => (
+              <Chip
+                key={index}
+                label={project.title}
+                onClick={() => setActiveStep(index)}
+                variant={activeStep === index ? 'filled' : 'outlined'}
+                sx={{
+                  cursor: 'pointer',
+                  borderColor: 'rgba(255,255,255,0.2)',
+                  color: activeStep === index ? 'black' : 'text.secondary',
+                  backgroundColor: activeStep === index ? 'white' : 'transparent',
+                  '&:hover': {
+                    backgroundColor: activeStep === index ? 'white' : 'rgba(255,255,255,0.08)',
+                    color: activeStep === index ? 'black' : 'text.primary',
+                  },
+                  transition: 'all 0.2s ease-in-out',
+                }}
+              />
+            ))}
+          </Box>
         </ScrollAnimation>
 
         <Box sx={{ position: 'relative' }}>
@@ -229,14 +267,27 @@ const Projects = () => {
                     <Typography variant="body1" paragraph>
                       {project.solution}
                     </Typography>
+
+                    {/* Outcomes as highlighted metric cards */}
                     <Typography variant="h6" gutterBottom>
                       Outcomes
                     </Typography>
-                    <Box component="ul" sx={{ pl: 2, mb: 2 }}>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, mb: 2 }}>
                       {project.outcomes.map((outcome, i) => (
-                        <Typography key={i} component="li" variant="body1" paragraph>
-                          {outcome}
-                        </Typography>
+                        <Box
+                          key={i}
+                          sx={{
+                            flex: '1 1 180px',
+                            p: 2,
+                            borderRadius: 2,
+                            background: 'rgba(255, 255, 255, 0.07)',
+                            border: '1px solid rgba(255, 255, 255, 0.12)',
+                          }}
+                        >
+                          <Typography variant="body2" sx={{ color: 'text.primary', lineHeight: 1.4 }}>
+                            {outcome}
+                          </Typography>
+                        </Box>
                       ))}
                     </Box>
                   </CardContent>
@@ -265,36 +316,6 @@ const Projects = () => {
           >
             <KeyboardArrowRight />
           </IconButton>
-        </Box>
-
-        <Box sx={{ 
-          position: 'fixed', 
-          bottom: 40, 
-          left: '50%', 
-          transform: 'translateX(-50%)',
-          zIndex: 1000,
-        }}>
-          <MobileStepper
-            steps={maxSteps}
-            position="static"
-            activeStep={activeStep}
-            sx={{
-              backgroundColor: 'transparent',
-              '& .MuiMobileStepper-dot': {
-                backgroundColor: 'rgba(255, 255, 255, 0.3)',
-                transition: 'all 0.2s ease-in-out',
-                '&:hover': {
-                  transform: 'scale(1.2)',
-                },
-              },
-              '& .MuiMobileStepper-dotActive': {
-                backgroundColor: 'primary.main',
-                transform: 'scale(1.2)',
-              },
-            }}
-            nextButton={null}
-            backButton={null}
-          />
         </Box>
       </Box>
     </Container>
